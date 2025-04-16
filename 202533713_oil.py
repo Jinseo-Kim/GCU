@@ -1,19 +1,26 @@
 # 컴퓨터공학과 / 202533713 / 김진서
 
-def error_chk(item, currect_length):
+def error_chk(item, currect_length = False, with_msg = True):
     number_chk = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
-    for char in item:
-        if char not in number_chk:
-            print("\n"+"caution: 잘못된 날짜 정보가 입력되었습니다.")
-            print(">>> 문자가 아닌 알맞는 숫자를 입력해주세요.")
-            print(f'>>> 잘못 입력된 값: {item}\n')
-            return False
-        if len(item) > currect_length:
-            print("\n"+"caution: 잘못된 날짜 정보가 입력되었습니다.")
-            print(">>> 알맞는 길이의 숫자를 입력해주세요.")
-            print(f'>>> 잘못 입력된 값: {item}\n')
-            return False
+    if with_msg:
+        for char in item:
+            if char not in number_chk:
+                print("\n"+"caution: 잘못된 정보가 입력되었습니다.")
+                print(">>> 문자가 아닌 알맞는 숫자를 입력해주세요.")
+                print(f'>>> 잘못 입력된 값: {item}')
+                return False
+            if currect_length and len(item) != currect_length:
+                print("\n"+"caution: 잘못된 정보가 입력되었습니다.")
+                print(">>> 알맞는 길이의 숫자를 입력해주세요.")
+                print(f'>>> 잘못 입력된 값: {item}, 최대 숫자의 길이: {currect_length}')
+                return False
+    else:
+        for char in item:
+            if char not in number_chk:
+                return False
+            if currect_length and len(item) != currect_length:
+                return False
 
     return True
 
@@ -31,34 +38,37 @@ def init_date_setting():
     return init_date
 
 def oil_cost_update():
+    oils = {}
     print("==================================================")
     print(f'>> 오늘({year}{month}{day})의 유가 정보를 입력해주세요.')
+
     while True:
-        high = input("> 고급 휘발유(1L): ")
-        regular = input("> 보통 휘발유(1L): ")
-        diesel = input("> 경유(1L): ")
-        print()
+        err_list = []
+        oils['고급 휘발유'] = input("> 고급 휘발유(1L): ")
+        oils['보통 휘발유'] = input("> 보통 휘발유(1L): ")
+        oils['경유'] = input("> 경유(1L): ")
+        
+        for key, value in oils.items():
+            chked_value = error_chk(value, with_msg = False)
 
-        print(">> 입력된 정보는 아래와 같습니다.")
-        print(f'> 고급 휘발유(1L): {high}')
-        print(f'> 보통 휘발유(1L): {regular}')
-        print(f'> 경유(1L): {diesel}')
-        recheck = input(">> 입력하신 정보가 맞습니까?(y or n): ")
+            if value[0] == '0' or chked_value == False:
+                err_list.append(key)
 
-        while True:
-            if recheck == 'y':
-                print()
-                return int(high), int(regular), int(diesel)
-            if recheck == 'n':
-                print("\n"+"유가 정보를 다시 입력해주세요.")
-                break
-            recheck = input(">> 입력하신 정보가 맞다면 y를, 틀리다면 n을 입력해주세요: ")
+        if err_list:
+            print()
+            print("caution: 값이 잘못 입력되었습니다.")
+            print(">>> 유가 정보를 재입력해주세요.")
+            print(f'>>> 잘못 입력된 값: {", ".join(err_list)}')
+        else:
+            break
+
+    return oils
 
 
-
-def main_screen(yy, mm, dd):
+def main_screen():
+    print()
     print("==================================================")
-    print(f'날짜: {yy}.{mm}.{dd}')
+    print(f'날짜: {year}.{month}.{day}')
     print("1. 주유")
     print("2. 금일 마감")
     print("3. 수입 내역서 확인")
@@ -79,17 +89,19 @@ def day_receipt():
 
 def fuel_up():
     print('{:=^40}'.format(" 주유 전 정전기 패드 터치!!! "))
-    
+    print('{:^40}'.format("< 금일 유가 >"))
+
     
 
 
 # 프로그램 실행
 start_date = init_date_setting()
 year, month, day = start_date[0:2], start_date[2:4], start_date[4:]
-high_gsl, regular_gsl, diesel = oil_cost_update()
+oils_cost = oil_cost_update()
+receipt = {}
 
 while True:
-    select_menu = main_screen(year, month, day)
+    select_menu = main_screen()
     if select_menu == '1':
         print()
         fuel_up()
@@ -97,14 +109,8 @@ while True:
         pass
     elif select_menu == '3':
         pass
-    else:
-        print("프로그램을 종료합니다.")
+    elif select_menu == '4':
+        print(">> 프로그램을 종료합니다.")
         exit()
-    
-        
-    
-
-
-
-
-
+    else:
+        print("caution: 1~4 중의 메뉴를 선택하여 다시 입력해주세요.")
