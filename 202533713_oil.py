@@ -88,22 +88,46 @@ def day_receipt():
     print("일간 수입 내역서")
 
 def fuel_up():
+    print()
     print('{:=^40}'.format(" 주유 전 정전기 패드 터치!!! "))
     print('{:^40}'.format("< 금일 유가 >"))
 
+    cnt = 1
+    for key, value in oils_info.items():
+        print(f'{cnt}. {key}: {value}원 (1L당)')
+        cnt+=1
+    print("--------------------------------------------------")
+
+    oil_type = input("> 유종에 알맞는 번호를 입력해주세요: ")
+    liter = input("> 주유하려는 기름의 양을 입력해주세요(단위: L): ")
+    while True:
+        if error_chk(oil_type, 1) == False or oil_type not in ['1', '2', '3']:
+            oil_type = input("> 유종에 알맞는 번호를 다시 입력해주세요: ")
+            continue
+        if liter[0] != '0' and error_chk(liter):
+            liter = input("> 주유하려는 기름의 양을 다시 입력해주세요(단위: L): ")
+            continue
+        break
+
+    profit = oils_info # 번호로 값을 받게되면 oils_info = {오일타입: 값}의 구조에서 oils_info = {1: [오일타입, 값], 2: [오일타입, 값], ...} 이런 형식으로 짜여야 함.
+            
+
+    success = input("> 주유 준비가 완료되었습니다. 주유 후 \'s\'를 입력해주세요: ")
+    day_receipt()
+
+    print(">> 초기화면으로 돌아갑니다.")
     
 
 
 # 프로그램 실행
 start_date = init_date_setting()
 year, month, day = start_date[0:2], start_date[2:4], start_date[4:]
-oils_cost = oil_cost_update()
+oils_info = oil_cost_update()
 receipt = {}
 
 while True:
     select_menu = main_screen()
     if select_menu == '1':
-        print()
         fuel_up()
     elif select_menu == '2':
         pass
