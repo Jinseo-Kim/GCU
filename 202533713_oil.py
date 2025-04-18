@@ -24,10 +24,9 @@ def error_chk(item, currect_length = False, with_msg = True):
 
     return True
 
-def init_date_setting():
+
+def date_setting(refresh = True):
     fixed_day = ['31', '28', '31', '30', '31', '30', '31', '31', '30', '31', '30', '31']
-    print("==================================================")
-    print(">> 프로그램이 정상적으로 실행되었습니다.")
     print(">> 오늘의 날짜를 입력해주세요.")
     print("(ex. 2025년 01월 01일 -> 250101)")
     init_date = input("> 날짜: ")
@@ -37,11 +36,14 @@ def init_date_setting():
             init_date = input("> 날짜: ")
         year, month, day = init_date[0:2], init_date[2:4], init_date[4:]
 
+        if refresh:
+            day = str(int(day) + 1)
+
         if 12 >= int(month) >= 1:
             print("caution: 잘못된 날짜입니다.")
             print(">>> 1~12월의 날짜를 입력해주세요.")
             init_date = input("> 날짜: ")
-        elif fixed_day[(month)-1] >= int(day) >= 1:
+        elif fixed_day[int(month)-1] >= int(day) >= 1:
             print("caution: 잘못된 날짜입니다.")
             print(">>> 해당 월에 알맞는 날짜를 입력해주세요.")
             init_date = input("> 날짜: ")
@@ -50,15 +52,6 @@ def init_date_setting():
 
     print()
     return year, month, day
-
-def date_update(yy, mm, dd):
-    print("==================================================")
-    mm, dd = int(mm), int(dd)+1
-    if dd > fixed_day[mm-1]:
-        dd = 1
-        mm += 1
-
-
 
 
 def oil_cost_update():
@@ -147,7 +140,10 @@ def fuel_up():
 
 
 # 프로그램 실행
-year, month, day = init_date_setting()
+print("==================================================")
+print(">> 프로그램이 정상적으로 실행되었습니다.")
+
+year, month, day = date_setting(refresh= False)
 oils_info = oil_cost_update()
 receipt = {}
 
@@ -158,7 +154,7 @@ while True:
     elif select_menu == '2':
         print(">> 금일 마감이 완료되었습니다.")
         print(">> 날짜가 자동 갱신됩니다.")
-        date_update(year, month, day)
+        date_setting(year, month, day)
         oils_info = oil_cost_update()
         print(">> 유가 정보가 갱신되었습니다.")
     elif select_menu == '3':
