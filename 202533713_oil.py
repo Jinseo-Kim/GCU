@@ -25,6 +25,7 @@ def error_check(item, expected_length=False, with_msg=True):
             return False
     return True
 
+
 # 프로그램 실행 후 날짜 초기값 세팅팅
 def init_date():
     """
@@ -60,6 +61,7 @@ def init_date():
 
     return year, month, day, leap
 
+
 # main_screen()에서 2(금일 마감) 선택 시 자동으로 날짜 갱신
 def date_update(leap):
     print()
@@ -83,6 +85,7 @@ def date_update(leap):
         leap = 1
 
     return update_year, update_month, update_day, leap
+
 
 # 날짜가 변경될 때마다 당일의 유가 정보를 업데이트
 def oil_cost_update():
@@ -120,6 +123,7 @@ def oil_cost_update():
 
     return oils
 
+
 # 사용자가 선택 가능한 메뉴가 있는 메인 화면
 def main_screen():
     print()
@@ -131,6 +135,7 @@ def main_screen():
     print("4. 프로그램 종료")
     menu_choice = input("> 원하는 메뉴를 입력해주세요: ")
     return menu_choice
+
 
 # 유종 선택 및 주유량을 입력받아 주유 진행
 def fuel_up(oils):
@@ -171,6 +176,7 @@ def fuel_up(oils):
 
     return profit
 
+
 # receipt 딕셔너리에 현재 날짜의 수입을 기록
 def add_profit(receipt, profit):
     day_key = str(day_idx)
@@ -203,6 +209,7 @@ def menu_receipt(receipt):
             detail_receipt(receipt, int(select))
             print_receipt(receipt)
 
+
 # 수입 내역서의 메인 화면 출력
 # 현재까지의 수입에 대한 내역이 모두 출력됨
 def print_receipt(receipt):
@@ -218,6 +225,7 @@ def print_receipt(receipt):
     print("=" * 50)
     print()
 
+
 # 선택된 날짜에 대한 상세 내역 출력
 def detail_receipt(receipt, select_num):
     print()
@@ -231,6 +239,7 @@ def detail_receipt(receipt, select_num):
     print("=" * 50)
     input("아무 키를 눌러주시면 이전화면으로 돌아갑니다...")
     print()
+
 
 
 # 프로그램 실행
