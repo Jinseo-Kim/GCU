@@ -231,10 +231,13 @@ def detail_receipt(receipt, select_num):
     print()
     print("=" * 50)
     print('{:^40}'.format("<상세 수입 내역서>"))
+
     sel_year, sel_month, sel_day, _ = receipt[str(select_num)]
     print(f'선택 날짜: {sel_year}년 {sel_month}월 {sel_day}일')
+
     for key, value in receipt_details[select_num].items():
         print(f'>> {key}. {value[0]}: {value[1]:,}원/{value[2]:,}L') 
+
     print(f'>> 총 수입: {receipt[str(select_num)][-1]:,}원')
     print("=" * 50)
     input("아무 키를 눌러주시면 이전화면으로 돌아갑니다...")
@@ -246,7 +249,7 @@ def detail_receipt(receipt, select_num):
 print("=" * 50)
 print(">> 프로그램이 정상적으로 실행되었습니다.")
 
-year, month, day, leap = init_date()
+year, month, day, leap = init_date() # year(int), month(int), day(int), leap(int)
 oils_info = oil_cost_update()  # oils_info = {'1': [oil_type, price(int), liter(int)]}
 receipt = {}         # receipt = {'1': [year, month, day, profit]}
 receipt_details = {} # receipt_details = {1: {'1': [oil_type, price(int), liter(int)], ...}}
@@ -254,20 +257,21 @@ day_idx = 1
 
 while True:
     menu_choice = main_screen()
-    if menu_choice == '1':
+    if menu_choice == '1':        # 1. 주유
         profit = fuel_up(oils_info)
         receipt = add_profit(receipt, profit)
         receipt_details[day_idx] = oils_info.copy()
-    elif menu_choice == '2':
+    elif menu_choice == '2':      # 2. 금일 마감
         year, month, day, leap = date_update(leap)
         oils_info = oil_cost_update()
         day_idx += 1
         print(">> 유가 정보가 갱신되었습니다.")
-    elif menu_choice == '3':
+    elif menu_choice == '3':      # 3. 수입 내역서 확인
         menu_receipt(receipt)
-    elif menu_choice == '4':
+    elif menu_choice == '4':      # 4. 프로그램 종료  
         print(">> 프로그램을 종료합니다.")
         exit()
     else:
         print()
         print("caution: 1~4 중의 메뉴를 선택하여 다시 입력해주세요.")
+
