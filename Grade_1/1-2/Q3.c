@@ -8,7 +8,6 @@ int main ()
 
     int human, com;
     int win_human = 0, win_com = 0;
-    int lose_human = 0, lose_com = 0;
     int scis = 0, rock = 1, paper = 2;
 
     srand(time(NULL));
@@ -27,15 +26,29 @@ int main ()
             if (com == 0 || com == 1 || com == 2)
             {
                 printf("컴퓨터가 결정했습니다.\n");
-                break;
+
+                printf("무엇을 내시겠습니까? (가위: 0, 바위: 1, 보: 2)");
+                scnaf(" %d", &human);
+
+                if (human == com)
+                    printf("무승부입니다. 다시 시작합니다.\n");
+                else
+                    break;
             }
-        }
-        printf("무엇을 내시겠습니까? (가위: 0, 바위: 1, 보: 2)");
-        scnaf(" %d", &human);
         
         if (human > com)
+        {
+            printf("컴퓨터는 %s, 당신은 %s, 당신이 이겼습니다.\n");
+            win_human += 1;
+        }
+        else
+        {
+            printf("컴퓨터는 %s, 당신은 %s, 컴퓨터가 이겼습니다.\n");
+            win_com += 1;
+        }
+        
+        printf("컴퓨터 : %d승 %d패, 당신 : %d승 %d패\n", win_human, cnt - win_human, win_com, cnt - win_com);
             
-        printf("컴퓨터는 ")
     }
     
 
