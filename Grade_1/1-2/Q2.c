@@ -24,7 +24,7 @@ int main () {
             for (k = 0; k < avgSpace; k++)
                 printf("%c", space);
 
-            printf("%d x %d = %d", N + i, j, (N + i) * j);
+            printf("%d x %d = %2d", N + i, j, (N + i) * j);
         }
 
         for (k = 0; k < avgSpace; k++)
