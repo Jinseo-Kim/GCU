@@ -6,7 +6,6 @@ int main()
 
     int N, M;
     int i, j, result = 0;
-    int cnt = 0;
 
     printf("N: ");
     scanf("%d", &N);
@@ -22,9 +21,48 @@ int main()
             continue;
         }
 
-        if (N == 1)
+        break;
+    }
+
+    if (N == 1)
+    {
+        for (i = 0; i < M; i++)
         {
-            for (i = 0; i < M; i++)
+            for (j = 0; j < M - i; j++)
+            {
+                printf("  ");
+            }
+            for (j = 0; j <= i; j++)
+            {
+                result++;
+                printf("%-3d ", result);
+            }
+            printf("\n");
+        }
+    }
+
+    if (N == 2)
+    {
+        for (i = 0; i < M; i++)
+        {
+            for (j = 0; j < i; j++)
+            {
+                printf("  ");
+            }
+            for (j = 0; j < M - i; j++)
+            {
+                result++;
+                printf("%-3d ", result);
+            }
+            printf("\n");
+        }
+    }
+
+    if (N == 3)
+    {
+        for (i = 0; i < M; i++)
+        {
+            if ((M / 2) > i)
             {
                 for (j = 0; j < M - i; j++)
                 {
@@ -35,16 +73,10 @@ int main()
                     result++;
                     printf("%-3d ", result);
                 }
-                printf("\n");
             }
-            break;
-        }
-
-        if (N == 2)
-        {
-            for (i = 0; i < M; i++)
+            else
             {
-                for (j = 0; j < i; j++)
+                for (j = 0; j < i + 1; j++)
                 {
                     printf("  ");
                 }
@@ -53,75 +85,40 @@ int main()
                     result++;
                     printf("%-3d ", result);
                 }
-                printf("\n");
             }
-            break;
+            printf("\n");
         }
+    }
 
-        if (N == 3)
+    if (N == 4)
+    {
+        for (i = 0; i < M; i++)
         {
-            for (i = 0; i < M; i++)
+            if ((M / 2) > i)
             {
-                if ((M / 2) > i)
+                for (j = 0; j < i; j++)
                 {
-                    for (j = 0; j < M - i; j++)
-                    {
-                        printf("  ");
-                    }
-                    for (j = 0; j <= i; j++)
-                    {
-                        result++;
-                        printf("%-3d ", result);
-                    }
+                    printf("  ");
                 }
-                else
+                for (j = 0; j < (M / 2) + 1 - i; j++)
                 {
-                    for (j = 0; j < i + 1; j++)
-                    {
-                        printf("  ");
-                    }
-                    for (j = 0; j < M - i; j++)
-                    {
-                        result++;
-                        printf("%-3d ", result);
-                    }
+                    result++;
+                    printf("%-3d ", result);
                 }
-                printf("\n");
             }
-            break;
-        }
-
-        if (N == 4)
-        {
-            for (i = 0; i < M; i++)
+            else
             {
-                if ((M / 2) > i)
+                for (j = 0; j < M - (i + 1); j++)
                 {
-                    for (j = 0; j < i; j++)
-                    {
-                        printf("  ");
-                    }
-                    for (j = 0; j < (M / 2) + 1 - i; j++)
-                    {
-                        result++;
-                        printf("%-3d ", result);
-                    }
+                    printf("  ");
                 }
-                else
+                for (j = 0; j <= i - (M / 2); j++)
                 {
-                    for (j = 0; j < M - (i + 1); j++)
-                    {
-                        printf("  ");
-                    }
-                    for (j = 0; j <= i - (M / 2); j++)
-                    {
-                        result++;
-                        printf("%-3d ", result);
-                    }
+                    result++;
+                    printf("%-3d ", result);
                 }
-                printf("\n");
             }
-            break;
+            printf("\n");
         }
     }
 }
