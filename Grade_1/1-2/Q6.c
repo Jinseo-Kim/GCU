@@ -24,49 +24,40 @@ int main ()
 
         if (50 < call)
             payments += (int)((call - 50) * 60 * 1.98 + 0.5); // 반올림을 위한 0.5 덧셈 후 명시적 형변환
-        printf("%d\n", payments);
         
         if (50 < message)
             payments += (message - 50) * 22;
-        printf("%d\n", payments);
 
         if (1800 < data)
             payments += (int)((data - 1800) * 22.53 + 0.5); // 반올림을 위한 0.5 덧셈 후 명시적 형변환
-        printf("%d\n", payments);
     }
 
-    if (select == 2)
+    else if (select == 2)
     {
         payments = 5500;
 
         if (100 < call)
             payments += (int)((call - 100) * 60 * 1.98 + 0.5); // 반올림을 위한 0.5 덧셈 후 명시적 형변환
-        printf("%d\n", payments);
         
         if (100 < message)
             payments += (message - 100) * 22;
-        printf("%d\n", payments);
 
         if (2000 < data)
             payments += (int)((data - 2000) * 22.53 + 0.5); // 반올림을 위한 0.5 덧셈 후 명시적 형변환
-        printf("%d\n", payments);
     }
 
-    if (select == 3)
+    else if (select == 3)
     {
         payments = 5500;
 
         if (100 < call)
             payments += (int)((call - 100) * 60 * 1.98 + 0.5); // 반올림을 위한 0.5 덧셈 후 명시적 형변환
-        printf("%d\n", payments);
         
         if (100 < message)
             payments += (message - 100) * 22;
-        printf("%d\n", payments);
 
         if (1000 < data)
             payments += (int)((data - 1000) * 22.53 + 0.5); // 반올림을 위한 0.5 덧셈 후 명시적 형변환
-        printf("%d\n", payments);
     }
 
     printf("예상 요금은 %d원 입니다.\n", payments);

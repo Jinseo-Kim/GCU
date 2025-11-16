@@ -11,7 +11,7 @@ print("가위바위보 게임")
 print("컴퓨터 : 0승 0패, 당신 : 0승 0패")
 
 for cnt in range(1, 6):
-    print(f"라운드 {cnt}")
+    print(f"(라운드 {cnt})")
 
     while True:
         com = (random.randint(0, 2)) ## 0 ~ 2까지의 값만 받음
