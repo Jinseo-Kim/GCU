@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 // int main () {
 //     // char name[] = {"jskim"};
@@ -110,3 +111,70 @@
 // int main () {
 //     printf("%d", DIFF(5, 3));
 // }
+// void change(int [][3]);
+
+// int main() {
+//     int i;
+//     int value[5][3] = {0};
+
+//     change(value);
+
+// }
+
+// void change(int value[][3])
+// {
+//     value[0][0] = 1;
+// }
+
+// int main() {
+//     char start[10] = "apple";
+//     char input[10];
+//     int cnt = 0, state = 1;
+//     int len;
+
+//     while(cnt < 10){
+//         if (state == 1){
+//             cnt += 1;
+//             printf("(%d) %s\n", cnt, start);
+//         }
+
+//         printf("끝말잇기 단어는? ");
+//         fgets(input, 7, stdin);
+
+//         len = strlen(input);
+
+//         // 1. 버퍼 비우기 (핵심 해결책)
+//         // 입력된 문자열 끝에 \n이 없다는 건, 글자가 짤려서 버퍼에 남았다는 뜻!
+//         if (input[len - 1] != '\n') {
+//             // 버퍼에 남은 걸 싹 다 꺼내서 버림(청소)
+//             while (getchar() != '\n'); 
+// }
+//         if (len > 0 && input[len - 1] == '\n')
+//             input[len - 1] = '\0';
+
+//         if ((len - 1 != 5) || (start[4] != input[0])){
+//             printf("옳지 않은 끝말잇기 단어입니다. 다시 입력하세요.\n");
+//             state = 0;
+//             continue;
+//         }
+//         else
+//             state = 1;
+//             strcpy(start, input);
+//     }
+// }
+
+int main () {
+    int N;
+    int *num;
+    int input, sum = 0;
+
+    scanf("%d", &N);
+    num = malloc(N * sizeof(int));
+
+    for (int i = 0; i < N; i++){
+        scanf("%d", &input);
+        sum += input;
+    }
+    printf("총점: %d, 평균: %d\n", sum, sum / N);
+
+}
