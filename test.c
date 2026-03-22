@@ -177,4 +177,10 @@ int main () {
     }
     printf("총점: %d, 평균: %d\n", sum, sum / N);
 
+
+int main() {
+    char str1[10] = "Hello";
+    char str2[10] = "World";
+
+    printf("%s", strchr(str2, 'l'));
 }
