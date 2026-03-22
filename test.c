@@ -110,3 +110,10 @@
 // int main () {
 //     printf("%d", DIFF(5, 3));
 // }
+
+int main() {
+    char str1[10] = "Hello";
+    char str2[10] = "World";
+
+    printf("%s", strchr(str2, 'l'));
+}
