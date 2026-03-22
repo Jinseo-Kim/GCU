@@ -5,41 +5,35 @@
 void make_ladder(char arr[][5])
 {
     char cnt = 0;
-    int attempts = 0;  // 최대 시도 횟수 변수 추가
+    int try = 0;
     char height; 
-    char ladder_head, ladder_tail;
+    char ladder_head;
 
     while(cnt < 20)
-    { 
-        attempts += 1;
-        height = rand() % 14;      // 높이 15 = idx range 0 ~ 14
-        ladder_head = rand() % 3 + 1; // 사다리는 user A B C D E에서 생성되며, 최종적으로 B C D에서 각각 양 옆으로 연결되는 구조로 나옴.
-        ladder_tail = rand() % 2;  // 0 또는 1 출력
-
-        if (arr[height][ladder_head] >= 1)
+    {
+        if (try > 1000) // 초기화
         {
-            continue;
-            printf("%d번째 시도 / cnt = %d\n", attempts, cnt);
+            for (int i = 0; i < 15; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                arr[i][j] = 0;
+            }
 
+            try = 0;
+            cnt = 0;
         }
-        else if (arr[height][ladder_head + 1] >= 1 || arr[height][ladder_head - 1] >= 1)
-        {
-            continue;
-            printf("%d번째 시도 / cnt = %d\n", attempts, cnt);
+            
+        height = rand() % 15;      // 높이 15 = idx range 0 ~ 14
+        ladder_head = rand() % 4; // 사다리는 user A B C D E에서 생성되며, 최종적으로 B C D에서 각각 양 옆으로 연결되는 구조로 나옴.
 
-        }
-
-        if (ladder_tail == 0)
+        if (arr[height][ladder_head] == 0)
         {
-            arr[height][ladder_head] = 1;
-            arr[height][ladder_head - 1] = 2;
-            cnt += 1;
-        }
-        else
-        {
-            arr[height][ladder_head] = 1;
-            arr[height][ladder_head + 1] = 2;
-            cnt += 1;
+            if (arr[height][ladder_head + 1] == 0)
+            {
+                arr[height][ladder_head] = 1;
+                arr[height][ladder_head + 1] = 2;
+                cnt += 1;
+            }
         }
     }
 }
