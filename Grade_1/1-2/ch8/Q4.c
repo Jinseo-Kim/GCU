@@ -19,4 +19,4 @@ int main() {
     printf("오늘의 날짜를 년, 월, 일 순으로입력하세요.");
     scanf("%d %d %d", &year, &month, &day);  
     printf("%d년 1월1일 이후로 오늘은 %d일 지났습니다.\n", year, getDate(year, month, day));
-}
+}`
