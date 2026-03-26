@@ -134,15 +134,31 @@ void print_ladder(char arr[][5])
 
 void run_ladder(char arr[][5])
 {
-    char result[5] = {0};
+    char col, row;
+    char result[5] = {0, 1, 2, 3, 4};
+    char cnt = 0;
 
-    for (int i = 0; i < 15; i++)
-        for (int j = 0; j < 5; j++)
+    while (cnt < 75)
+    {
+        for (int i = 0; i < 5; i++)
             {
-                if (arr[i][j] == 0)
-                else if (arr[i][j] == 1)
-                else if (arr[i][j] == 2)
+                col = result[i] / 5;
+                row = result[i] % 5;
+                
+                if (arr[col][row] == 0)
+                    result[i] += 5;
+                else if (arr[col][row] == 1)
+                    result[i] += 6;
+                else
+                    result[i] += 4;
+
+                cnt += 1;
             }
+    }
+    for (int i = 0; i < 5; i++)
+    {
+        printf("%d -> %c   ", i + 1, result[i] - 10);
+    }
 }
 
 int main()
@@ -150,20 +166,39 @@ int main()
     srand(time(NULL));
     char arr[15][5] = {0};
 
+    /////// test array
+    // char arr[15][5] = {
+    //     {0, 0, 1, 2, 0},
+    //     {0, 1, 2, 1, 2},
+    //     {0, 0, 0, 1, 2},
+    //     {0, 1, 2, 0, 0},
+    //     {0, 0, 0, 1, 2}, // 5
+    //     {0, 1, 2, 1, 2},
+    //     {1, 2, 0, 0, 0},
+    //     {0, 1, 2, 1, 2},
+    //     {1, 2, 0, 1, 2},
+    //     {0, 0, 1, 2, 0}, // 10
+    //     {0, 0, 0, 1, 2},
+    //     {0, 0, 0, 1, 2},
+    //     {0, 0, 0, 0, 0},
+    //     {0, 1, 2, 1, 2},
+    //     {0, 1, 2, 1, 2} // 15
+    // };
+
     make_ladder(arr);
     
-    for (int i = 0; i < 15; i++)
-    {
-        for (int j = 0; j < 5; j++)
-        {
-            printf("%d ", arr[i][j]);
-        }
-        if (i % 5 == 4)
-            printf("\n");
-        printf("\n");
-    }
+    // for (int i = 0; i < 15; i++)
+    // {
+    //     for (int j = 0; j < 5; j++)
+    //     {
+    //         printf("%d ", arr[i][j]);
+    //     }
+    //     if (i % 5 == 4)
+    //         printf("\n");
+    //     printf("\n");
+    // }
     print_ladder(arr);
     run_ladder(arr);
-    
+
     return 0;
 }
