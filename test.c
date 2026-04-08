@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 // int main () {
 //     // char name[] = {"jskim"};
@@ -163,24 +164,81 @@
 //     }
 // }
 
-int main () {
-    int N;
-    int *num;
-    int input, sum = 0;
+// int main () {
+//     int N;
+//     int *num;
+//     int input, sum = 0;
 
-    scanf("%d", &N);
-    num = malloc(N * sizeof(int));
+//     scanf("%d", &N);
+//     num = malloc(N * sizeof(int));
 
-    for (int i = 0; i < N; i++){
-        scanf("%d", &input);
-        sum += input;
-    }
-    printf("총점: %d, 평균: %d\n", sum, sum / N);
+//     for (int i = 0; i < N; i++){
+//         scanf("%d", &input);
+//         sum += input;
+//     }
+//     printf("총점: %d, 평균: %d\n", sum, sum / N);
 
+
+// int main() {
+//     char str1[10] = "Hello";
+//     char str2[10] = "World";
+
+//     printf("%s", strchr(str2, 'l'));
+// }
+
+//----------------------------------------------------0407----------------------------------------------------
+
+// struct user
+// {
+//     char name[6];
+//     char number[12];
+// };
+
+
+// int main() {
+//     char name[5];
+//     struct user users[3] = {
+//         {"aaaaa", "01011112222"},
+//         {"bbbbb", "01033334444"},
+//         {"ccccc", "01055556666"},
+//     };
+
+//     while(1){
+//         printf("이름: ");
+//         scanf("%s", name);
+
+//         for (int i = 0; i < 3; i++){
+//             if (strcmp(users[i].name, name) == 0){
+//                 printf("u[%d] number: %s\n", i, users[i].number);
+//                 break;
+//             }
+//             if (i == 2)
+//                 printf("not found\n");
+//         }
+//     }
+// }
+
+// struct STUDENT {
+//     int number;
+//     char *name;
+//     int rank;
+// };
+
+// int main (void)
+// {
+//     struct STUDENT kim = {1001, "kim", 1};
+//     struct STUDENT lee;
+
+//     lee = kim;
+//     lee.number = 1002;
+//     lee.rank = 2;
+//     strcpy(lee.name, "lee");
+// }
 
 int main() {
-    char str1[10] = "Hello";
-    char str2[10] = "World";
-
-    printf("%s", strchr(str2, 'l'));
+    char arr[5];
+    fgets(arr, 3, stdin);
+    printf("1: %s\n", arr);
+    fgets(arr, 3, stdin);
+    printf("2: %s", arr);
 }
