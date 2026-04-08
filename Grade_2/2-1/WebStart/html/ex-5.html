@@ -1,0 +1,59 @@
+<!--
+학과: 컴퓨터공학과
+학번: 202533713
+이름: 김진서
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        div {
+            border: 3px solid #73ad73;
+            max-width: 300px;
+            margin: auto;
+            height: 100px;
+            background-color: white;
+        }
+        .box1 {
+            position: static;
+        }
+        /* 원래 static으로 인해 자리 잡았어야 했을 위치에서 이동되는 것 */
+        .box2 {
+            position: relative;
+            left: 30px;
+            top: -30px;
+        }
+        .box3 {
+            position: relative;
+            left: 60px;
+            top: -60px;
+        }
+        /* 브라우저 기준 절대 위치임, 좌우로 창 늘렸다 줄여도 고정됨 */
+        .box4 { 
+            position: absolute;
+            left: 75px;
+            top: 75px;
+        }
+        /* 브라우저에서 일정 위치에 고정된 상태로 좌우 창 늘리는 거에 따라 일정 위치를 고수함 */
+        .box5 {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+        }
+
+    </style>
+    </head>
+
+    <body>
+      <H2>ex-5: 박스모델과 position</H2>
+      <hr>
+      <div class="box1">Box-1: static</div>
+      <div class="box2">Box-2: relative</div>
+      <div class="box3">Box-3: relative</div>
+      <hr>
+      <div class="box4">Box-4: absolute</div>
+      <div class="box5">Box-5: fixed</div>
+    </body>
+  </html>
