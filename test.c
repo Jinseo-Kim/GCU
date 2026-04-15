@@ -236,9 +236,18 @@
 // }
 
 int main() {
-    char arr[5];
-    fgets(arr, 3, stdin);
+    int cnt = 0;
+    char* arr = (char*)malloc(100 * sizeof(char));
+
+    //입력
+    while(fgets(arr + (cnt * 99), 100, stdin) == NULL) {
+        arr = (char*)realloc(arr, strlen(arr) + 100);
+        cnt += 1;
+    }
+
+
+    // arr[strlen(arr)-1] = '\0';
     printf("1: %s\n", arr);
-    fgets(arr, 3, stdin);
-    printf("2: %s", arr);
+    // fgets(arr, 3, stdin);
+    // printf("2: %s", arr);
 }
