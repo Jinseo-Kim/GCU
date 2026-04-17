@@ -168,8 +168,10 @@ int main() {
         coef = atof(token);                 // 2. float(coef)
 
         token = strtok(NULL, " ");          // 3. str(expon)
-        if (token == NULL)
+        if (token == NULL){
+            printf("coef (O) expon (X)\n");
             break;
+        }
         expon = atoi(token);                // 4. int(expon)
 
         attach(coef, expon);                // 5. 구조체에 값 넣고 다음 인덱스로 이동(avail++)

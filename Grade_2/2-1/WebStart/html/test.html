@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Main UI - Bootstrap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* 넷플릭스 시그니처 테마 */
+        body {
+            background-color: #141414;
+            color: white;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        /* 투명에서 검은색으로 변하는 네비바 */
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.7);
+            transition: background-color 0.5s;
+        }
+
+        /* 히로 배너 섹션 */
+        .hero-section {
+            height: 80vh;
+            background: linear-gradient(to top, #141414 5%, transparent 95%), 
+                        linear-gradient(to right, rgba(0,0,0,0.8), transparent),
+                        url('https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center center;
+            display: flex;
+            align-items: center;
+        }
+
+        /* 영화 포스터 카드 호버 효과 */
+        .movie-card {
+            aspect-ratio: 2/3;
+            background-color: #2f2f2f;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .movie-card:hover {
+            transform: scale(1.08);
+            z-index: 10;
+        }
+
+        .movie-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* 섹션 제목 */
+        .category-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top px-4">
+        <div class="container-fluid">
+            <a class="navbar-brand text-danger fw-bold fs-3" href="#">NETFLIX</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-link active">홈</li>
+                    <li class="nav-link">시리즈</li>
+                    <li class="nav-link">영화</li>
+                    <li class="nav-link">NEW! 요즘 대세 콘텐츠</li>
+                    <li class="nav-link">내가 찜한 콘텐츠</li>
+                </ul>
+                <div class="d-flex align-items-center gap-3">
+                    <span class="text-white">🔍</span>
+                    <span class="text-white">🔔</span>
+                    <div style="width:32px; height:32px; background-color: #e50914; border-radius: 4px;"></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <div class="container-fluid px-5">
+            <h1 class="display-1 fw-bold mb-3">더 글로리</h1>
+            <p class="fs-4 w-50 mb-4 d-none d-md-block">유년 시절 폭력으로 영혼까지 부서진 한 여자가 온 생을 걸어 치밀하게 준비한 처절한 복수와 그 소용돌이에 빠져드는 이들의 이야기.</p>
+            <div class="d-flex gap-2">
+                <button class="btn btn-light btn-lg px-4 fw-bold">▶ 재생</button>
+                <button class="btn btn-secondary btn-lg px-4 fw-bold text-white" style="background-color: rgba(109, 109, 110, 0.7);">ⓘ 상세 정보</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container-fluid px-5 pb-5">
+        
+        <div class="category-title">지금 뜨는 콘텐츠</div>
+        <div class="row g-2">
+            <div class="col-4 col-md-3 col-lg-2"><div class="movie-card"><img src="https://via.placeholder.com/200x300/111?text=Movie+1"></div></div>
+            <div class="col-4 col-md-3 col-lg-2"><div class="movie-card"><img src="https://via.placeholder.com/200x300/222?text=Movie+2"></div></div>
+            <div class="col-4 col-md-3 col-lg-2"><div class="movie-card"><img src="https://via.placeholder.com/200x300/333?text=Movie+3"></div></div>
+            <div class="col-4 col-md-3 col-lg-2"><div class="movie-card"><img src="https://via.placeholder.com/200x300/444?text=Movie+4"></div></div>
+            <div class="col-4 col-md-3 col-lg-2"><div class="movie-card"><img src="https://via.placeholder.com/200x300/555?text=Movie+5"></div></div>
+            <div class="col-4 col-md-3 col-lg-2"><div class="movie-card"><img src="https://via.placeholder.com/200x300/666?text=Movie+6"></div></div>
+        </div>
+
+        <div class="category-title">오늘 대한민국 TOP 10 시리즈</div>
+        <div class="row g-2">
+            <div class="col-4 col-md-3 col-lg-2"><div class="movie-card"><img src="https://via.placeholder.com/200x300/777?text=TOP+1"></div></div>
+            <div class="col-4 col-md-3 col-lg-2"><div class="movie-card"><img src="https://via.placeholder.com/200x300/888?text=TOP+2"></div></div>
+            <div class="col-4 col-md-3 col-lg-2"><div class="movie-card"><img src="https://via.placeholder.com/200x300/999?text=TOP+3"></div></div>
+            <div class="col-4 col-md-3 col-lg-2"><div class="movie-card"><img src="https://via.placeholder.com/200x300/aaa?text=TOP+4"></div></div>
+            <div class="col-4 col-md-3 col-lg-2"><div class="movie-card"><img src="https://via.placeholder.com/200x300/bbb?text=TOP+5"></div></div>
+            <div class="col-4 col-md-3 col-lg-2"><div class="movie-card"><img src="https://via.placeholder.com/200x300/ccc?text=TOP+6"></div></div>
+        </div>
+
+    </main>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.backgroundColor = '#141414';
+            } else {
+                navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+            }
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
