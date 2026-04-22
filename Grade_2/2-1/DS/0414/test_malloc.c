@@ -19,6 +19,6 @@ int main() {
         real_mem = realloc(real_mem, (cnt * max_size) + max_size);
     }
 
-    for (int i = 0; i < cnt * max_size; i++)
-        printf("%d ", );
+    // for (int i = 0; i < cnt * max_size; i++)
+    //     printf("%d ", );
 }
