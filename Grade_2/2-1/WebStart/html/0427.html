@@ -1,0 +1,289 @@
+<!--
+학과: 컴퓨터공학과
+학번: 202533713
+이름: 김진서
+-->
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #141414;
+        }
+
+        .main {
+            height: 600px;
+            position: relative;
+        }
+
+        .main-info {
+            position: absolute;
+            bottom: 80px;
+            left: 40px;
+        }
+
+        .scroll-row {
+            display: flex;
+            overflow-x: auto;
+        }
+
+        .scroll-card {
+            min-width: 200px;
+            max-width: 200px;
+            margin-right: 6px;
+        }
+
+        .thumb {
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body class="text-white">
+
+    <!-- 네비게이션 바 -->
+    <nav class="navbar navbar-expand-lg bg-black px-4">
+        <span class="text-danger fw-bold fst-italic fs-3 me-4">NETFLIX</span>
+
+        <div class="d-none d-lg-flex gap-3">
+            <a href="#" class="nav-link text-secondary">홈</a>
+            <a href="#" class="nav-link text-secondary">시리즈</a>
+            <a href="#" class="nav-link text-secondary">영화</a>
+            <a href="#" class="nav-link text-secondary">게임</a>
+            <a href="#" class="nav-link text-secondary">NEW! 요즘 대세 콘텐츠</a>
+            <a href="#" class="nav-link text-secondary">내가 찜한 리스트</a>
+            <a href="#" class="nav-link text-secondary">언어별로 찾아보기</a>
+        </div>
+
+        <div class="ms-auto d-flex align-items-center gap-3">
+            <button class="btn btn-dark btn-sm">검색</button>
+            <button class="btn btn-dark btn-sm">키즈</button>
+            <button class="btn btn-dark btn-sm">알림</button>
+
+            <div class="bg-warning rounded"
+                style="width:34px; height:34px; display:flex; align-items:center; justify-content:center; cursor:pointer;">
+                😊</div>
+        </div>
+    </nav>
+
+    <!-- 배너 -->
+    <div class="main bg-secondary">
+        <img src="https://i.ibb.co/wrFPWbch/2026-04-27-10-12-38.png" class="w-100 h-100" alt="배너 이미지">
+
+        <div class="main-info">
+            <div class="fw-bold" style="font-size: 36px; line-height: 1.3;">
+                모두가<br>자신의 무가치함과<br>싸우고 있다
+            </div>
+            <div class="mt-3">
+                <button class="btn btn-light fw-bold me-2">▶ 재생</button>
+                <button class="btn btn-secondary fw-bold">상세 정보</button>
+            </div>
+        </div>
+
+        <div class="position-absolute bottom-0 end-0 mb-5 me-4 border-start border-secondary ps-2 text-secondary small">
+            15+</div>
+    </div>
+
+
+    <!-- 오늘의 콘텐츠 -->
+    <div class="px-4 mt-4">
+        <div class="fw-bold fs-5 mb-2">회원님을 위해 엄선한 오늘의 콘텐츠</div>
+        <div class="scroll-row">
+
+            <div class="scroll-card">
+                <div class="thumb bg-secondary">
+                    <img src="https://i.ibb.co/R4tgh8Vd/2026-04-27-9-42-28.png" class="w-100 h-100" alt="">
+                </div>
+                <div class="mt-1"><span class="badge bg-danger">TOP 10</span> <span class="badge bg-danger">새로운 에피소드</span></div>
+            </div>
+
+            <div class="scroll-card">
+                <div class="thumb bg-secondary">
+                    <img src="https://i.ibb.co/Xrhx1W3S/2026-04-27-9-41-34.png" class="w-100 h-100" alt="">
+                </div>
+                <div class="mt-1"><span class="badge bg-danger">새로운 에피소드</span> </div>
+            </div>
+
+            <div class="scroll-card">
+                <div class="thumb bg-secondary">
+                    <img src="https://i.ibb.co/svR0fm98/2026-04-27-9-44-55.png" class="w-100 h-100" alt="">
+                </div>
+            </div>
+
+            <div class="scroll-card">
+                <div class="thumb bg-secondary">
+                    <img src="https://i.ibb.co/PZDLBv4R/2026-04-27-8-36-37.png" class="w-100 h-100" alt="">
+                </div>
+            </div>
+
+            <div class="scroll-card">
+                <div class="thumb bg-secondary">
+                    <img src="https://i.ibb.co/G48C1sQf/2026-04-27-8-35-14.png" class="w-100 h-100" alt="">
+                </div>
+                <div class="mt-1"><span class="badge bg-danger">TOP 10</span> <span class="badge bg-danger">새로운 시즌</span></div>
+            </div>
+
+            <div class="scroll-card">
+                <div class="thumb bg-secondary">
+                    <img src="https://i.ibb.co/JRWmbdWG/2026-04-27-8-46-38.png" class="w-100 h-100" alt="">
+                </div>
+                <div class="mt-1"><span class="badge bg-danger">TOP 10</span> <span class="badge bg-danger">새로운 시즌</span></div>
+            </div>
+
+            <div class="scroll-card">
+                <div class="thumb bg-secondary">
+                    <img src="https://i.ibb.co/4nCSGyCH/2026-04-27-8-59-58.png" class="w-100 h-100" alt="">
+                </div>
+            </div>
+
+            <div class="scroll-card">
+                <div class="thumb bg-secondary">
+                    <img src="https://i.ibb.co/dJK4d0pK/2026-04-27-9-51-37.png" class="w-100 h-100" alt="">
+                </div>
+            </div>
+
+            <div class="scroll-card">
+                <div class="thumb bg-secondary">
+                    <img src="https://i.ibb.co/Xxq3XJ0T/2026-04-27-9-51-47.png" class="w-100 h-100" alt="">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- 영어 공부 -->
+    <div class="px-4 mt-5">
+        <div class="fw-bold fs-5 mb-2">영어 공부, 넷플릭스와 함께할까요?</div>
+        <div class="scroll-row">
+            <div class="scroll-card">
+                <div class="thumb bg-secondary">
+                    <img src="https://i.ibb.co/LdV4Wrw8/2026-04-27-9-15-39.png" class="w-100 h-100" alt="">
+                </div>
+            </div>
+
+            <div class="scroll-card">
+                <div class="thumb bg-secondary">
+                    <img src="https://i.ibb.co/dsMwgKZq/2026-04-27-9-15-49.png" class="w-100 h-100" alt="">
+                </div>
+            </div>
+
+            <div class="scroll-card">
+                <div class="thumb bg-secondary">
+                    <img src="https://i.ibb.co/mVhtsb25/2026-04-27-9-15-57.png" class="w-100 h-100" alt="">
+                </div>
+            </div>
+
+            <div class="scroll-card">
+                <div class="thumb bg-secondary">
+                    <img src="https://i.ibb.co/C3dNHVXH/2026-04-27-9-16-04.png" class="w-100 h-100" alt="">
+                </div>
+            </div>
+
+            <div class="scroll-card">
+                <div class="thumb bg-secondary">
+                    <img src="https://i.ibb.co/HDFTvZrk/2026-04-27-9-16-15.png" class="w-100 h-100" alt="">
+                </div>
+            </div>
+
+            <div class="scroll-card">
+                <div class="thumb bg-secondary">
+                    <img src="https://i.ibb.co/JRPxHxRD/2026-04-27-9-16-09.png" class="w-100 h-100" alt="">
+                </div>
+            </div>
+
+            <div class="scroll-card">
+                <div class="thumb bg-secondary">
+                    <img src="https://i.ibb.co/y1SJZLg/2026-04-27-9-20-09.png" class="w-100 h-100" alt="">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- 시청 중인 콘텐츠 -->
+    <div class="px-4 mt-5">
+        <div class="fw-bold fs-5 mb-2">Gachon 님이 시청 중인 콘텐츠</div>
+        <div class="scroll-row">
+            <div class="scroll-card">
+                <div class="thumb bg-secondary">
+                    <img src="https://i.ibb.co/WvpPKcn8/2026-04-27-9-21-21.png" class="w-100 h-100" alt="">
+                </div>
+            </div>
+            <div class="scroll-card">
+                <div class="thumb bg-secondary">
+                    <img src="https://i.ibb.co/350mYJdN/2026-04-27-9-22-09.png" class="w-100 h-100" alt="">
+                </div>
+            </div>
+            <div class="scroll-card">
+                <div class="thumb bg-secondary">
+                    <img src="https://i.ibb.co/twR3bTB1/2026-04-27-9-22-00.png" class="w-100 h-100" alt="">
+                </div>
+            </div>
+            <div class="scroll-card">
+                <div class="thumb bg-secondary">
+                    <img src="https://i.ibb.co/vx075nFF/2026-04-27-9-24-34.png" class="w-100 h-100" alt="">
+                </div>
+                <div class="mt-1"><span class="badge bg-danger">새로운 에피소드</span></div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 마음에 쏙 드실 거예요 -->
+    <div class="px-4 mt-5 mb-5">
+        <div class="fw-bold fs-5 mb-2">최다 검색</div>
+        <div class="scroll-row">
+            <div class="scroll-card">
+                <div class="thumb bg-secondary">
+                    <img src="https://i.ibb.co/vx075nFF/2026-04-27-9-24-34.png" class="w-100 h-100" alt="">
+                </div>
+                <div class="mt-1"><span class="badge bg-danger">새로운 에피소드</span></div>
+            </div>
+
+            <div class="scroll-card">
+                <div class="thumb bg-secondary">
+                    <img src="https://i.ibb.co/cSx0xZcy/2026-04-27-9-32-20.png" class="w-100 h-100" alt="">
+                </div>
+            </div>
+
+            <div class="scroll-card">
+                <div class="thumb bg-secondary">
+                    <img src="https://i.ibb.co/Zp1XKK0y/2026-04-27-9-32-40.png" class="w-100 h-100" alt="">
+                </div>
+                <div class="mt-1"><span class="badge bg-danger">TOP 10</span> <span class="badge bg-danger">새로운 에피소드</span></div>
+            </div>
+
+            <div class="scroll-card">
+                <div class="thumb bg-secondary">
+                    <img src="https://i.ibb.co/PsLM3GDm/2026-04-27-9-32-51.png" class="w-100 h-100" alt="">
+                </div>
+                <div class="mt-1"><span class="badge bg-danger">TOP 10</span> </div>
+            </div>
+
+            <div class="scroll-card">
+                <div class="thumb bg-secondary">
+                    <img src="https://i.ibb.co/5xB1FtYf/2026-04-27-9-33-01.png" class="w-100 h-100" alt="">
+                </div>
+            </div>
+
+            <div class="scroll-card">
+                <div class="thumb bg-secondary">
+                    <img src="https://i.ibb.co/SDQ6cYzR/2026-04-27-9-33-27.png" class="w-100 h-100" alt="">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

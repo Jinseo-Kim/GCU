@@ -25,7 +25,7 @@ int is_full1(Queue *q) {
     if (q->front == q->rear && q->flag == 1){
         return true;
     }
-    return false
+    return false;
 }
 
 void enqueue(Queue *q, int item) {
@@ -47,8 +47,8 @@ int dequeue(Queue *q) {
     return q->queue[q->front];
 }
 
-Queue *init (Queue *reset) {
-    reset->queue[MAX_QUEUE_SIZE] = {0};
+Queue *init () {
+    // reset->queue[MAX_QUEUE_SIZE] = {0};
     reset->front = -1;
     reset->rear = -1;
     reset->flag = 0;
@@ -65,9 +65,8 @@ void print_queue(Queue *q) {
 }
 
 int main () {
-    Queue *q;
+    Queue *q = init();
 
-    init(q);
     for (int i = 1; i <= 15; i+=2)
         enqueue(q, i);
         
