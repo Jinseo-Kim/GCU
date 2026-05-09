@@ -1,0 +1,47 @@
+<!--
+학과: 컴퓨터공학과
+학번: 202533713
+이름: 김진서
+-->
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS ex-2</title>
+</head>
+
+<body>
+    <script>
+        // 함수 외부 선언으로 전역변수로 동작
+        var txt1 = 'text1'; 
+        console.log(txt1); // text1 출력
+
+        if (true) {
+            // 지역변수 처럼 보이나 var로 선언된 변수는 블럭 외부에서도 접근 가능
+            var txt2 = 'text2';
+            console.log(txt2); // text2 출력
+        }
+
+        console.log(txt1); // text1 출력
+        console.log(txt2); // text2 출력
+
+        let txt1_1 = 'text1_1';
+        const txt3 = 'hello';
+        console.log(txt1_1); // text1_1 출력
+
+        if (true) {
+            let txt2_2 = 'text2_2';
+            console.log(txt2_2); // text2_2 출력
+        }
+
+        console.log(txt1_1); // text1_1 출력
+        // console.log(txt2_2);  //error
+        //txt3 = 'world'; //error
+        console.log(txt3); // hello 출력        
+    </script>
+</body>
+
+</html>

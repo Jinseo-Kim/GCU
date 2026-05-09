@@ -38,6 +38,50 @@ void insert(ListNode** phead, ListNode* pre, element value)
 	}
 }
 
+int conuntN(ListNode * phead, int target){
+	int cnt = 0;
+	ListNode *curr = phead;
+	if (curr == NULL){
+		printf("head가 없습니다.\n");
+		return 0;
+	}
+
+	while (curr != NULL){
+		if (curr->data == target)
+			cnt += 1;
+		curr = curr->link;
+	}
+	return cnt;
+
+}
+
+void delteAllN(ListNode **phead, int target){
+	ListNode *removed;
+	ListNode *pre = *phead;
+	ListNode *curr = *phead;
+
+	if (curr == NULL){
+		printf("head가 없습니다.\n");
+		return 0;
+	}
+	else if (curr->data == target && curr->link == NULL){
+		*phead = NULL;
+		return 0;
+	}
+
+	while (curr != NULL){
+		if (curr->data == target){
+			pre->link = curr->link;
+			free(curr);
+			curr = pre->link;
+		}
+		else {
+			pre = curr;
+			curr = curr->link;
+		}
+	}
+
+}
 // pre가 가리키는 노드의 다음 노드를 삭제한다. 
 void delete(ListNode** phead, ListNode* pre)
 {
